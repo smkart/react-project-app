@@ -33,10 +33,18 @@ function ProjectsPages() {
        loadProjects();
     }, [currentPage])
     const onSaveClick = (project: Project) => { 
-        let updatedProjects = projects.map((p) => {
-            return p.id === project.id ? project : p;
+        projectAPI.put(project)
+        .then((updatedProject) => {
+            let updatedProjects = projects.map((p) => {
+                return p.id === project.id ? project : p;
+            });
+            setProjects(updatedProjects);
+        })
+        .catch((error) => {
+            if (error instanceof Error) {
+                setError(error.message);
+            }
         });
-        setProjects(updatedProjects);
     }
 
     const handleMoreClick = () => { 
