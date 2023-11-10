@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Project } from "./project";
 import React from "react";
 
@@ -18,8 +19,10 @@ function ProjectCard({ project, onEdit }: ProjectCardProps) {
     return (
         <div key={project.id} className="cols-sm">
         <div className="card">
+            
             <img src={project.imageUrl} alt={project.name} />
             <section className="section dark">
+            <Link to={'/projects/' + project.id} className="link">
                 <h5 className="strong">
                     <strong>{project.name}</strong>
                 </h5>
@@ -29,6 +32,7 @@ function ProjectCard({ project, onEdit }: ProjectCardProps) {
                 <p>
                     budget: {project.budget.toLocaleString()}
                 </p>
+             </Link>
                 <button className=" bordered" onClick={() => {
                     handleClickEvent(project);
                 }}>

@@ -1,5 +1,9 @@
 import './App.css';
 
+import { NavLink, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
+import HomePage from './home/HomePage';
+import ProjectPage from './projects/ProjectPage';
 import ProjectsPages from './projects/projects';
 import React from 'react';
 
@@ -23,9 +27,32 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <blockquote cite='Benjamin Franklin' >
-      <ProjectsPages/>
-    </blockquote>
+    // <blockquote cite='Benjamin Franklin' >
+    //   <ProjectsPages/>
+    // </blockquote>
+
+    <Router>
+      <header>
+        <span className="logo">
+          <img src="/assets/logo-3.svg" alt="logo" width="49" height="99" />
+        </span>
+        <NavLink to="/"  className="button rounded">
+        <span className="icon-home"></span>
+        Home
+        </NavLink>
+        <NavLink to="/projects"  className="button rounded">
+        <span className="icon-home"></span>
+        Projects
+        </NavLink>
+      </header>
+      <div className="container">
+        <Routes>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path="/projects" element={<ProjectsPages />} />
+          <Route path="/projects/:id" element={<ProjectPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
