@@ -6,7 +6,6 @@ interface ProjectDetailsProps {
 }
 
 function ProjectDetails({project}: ProjectDetailsProps) {
-    console.log('Detauls',project);
     return (
         <div className="row">
         <div className="col-sm-6">
