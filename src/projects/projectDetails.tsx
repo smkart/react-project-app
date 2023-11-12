@@ -6,6 +6,7 @@ interface ProjectDetailsProps {
 }
 
 function ProjectDetails({project}: ProjectDetailsProps) {
+    // Display the project details
     return (
         <div className="row">
         <div className="col-sm-6">
